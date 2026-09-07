@@ -119,6 +119,53 @@ header.header {
   color: #000;
 }
 
+.btn-outline {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
+  border-radius: 40px;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(10px);
+  display: inline-flex;
+  align-items: center;
+}
+
+.btn-outline:hover {
+  background: rgba(255, 255, 255, 0.16);
+  border-color: rgba(255, 255, 255, 0.4);
+  transform: scale(1.05);
+  color: #fff;
+}
+
+.download-tip {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: 1.25rem;
+  padding: 0.65rem 1rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  font-size: 0.8rem;
+  color: #9ca3af;
+  line-height: 1.4;
+  backdrop-filter: blur(8px);
+  max-width: 440px;
+}
+
+.download-tip svg {
+  flex-shrink: 0;
+  color: #60a5fa;
+}
+
+.download-tip strong {
+  color: #f3f4f6;
+  font-weight: 600;
+}
+
 /* Cinematic Hero Section */
 .hero-cinematic {
   display: grid;
@@ -138,8 +185,9 @@ header.header {
 
 .hero-buttons {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  gap: 2rem;
+  gap: 1rem;
 }
 
 .hero-center {
