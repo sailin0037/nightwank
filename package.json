@@ -14,6 +14,7 @@
   "devDependencies": {
     "sharp": "^0.35.4",
     "svgo": "^4.1.0",
+    "vercel": "^59.15.1",
     "vite": "^8.2.2",
     "vite-plugin-compression": "*",
     "vite-plugin-image-optimizer": "*"
