@@ -356,8 +356,8 @@ header.header:hover {
 /* Article/Prose Content (for SEO pages) */
 .prose {
   max-width: 900px;
-  margin: 4rem auto;
-  padding: 0 2rem;
+  margin: 2rem auto 4rem;
+  padding: 8rem 2rem 0;
 }
 
 .prose h2 {
@@ -670,7 +670,7 @@ footer {
     gap: 1.5rem;
   }
   .prose {
-    padding: 0 1rem;
+    padding: 6rem 1rem 0;
     margin: 2rem auto;
   }
   .prose p {
