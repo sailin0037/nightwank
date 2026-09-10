@@ -626,16 +626,44 @@ footer {
 
 @media (max-width: 768px) {
   .site-wrapper {
-    padding: 0 1.5rem;
+    padding: 0 1rem;
   }
   header.header {
     grid-template-columns: 1fr auto;
+    padding: 0.8rem;
+    border-radius: 12px;
   }
   .main-nav {
     display: none;
   }
   .hero-left h1 {
+    font-size: 2.5rem;
+  }
+  .hero-right p {
+    font-size: 1rem;
+  }
+  .hero-buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+  .hero-buttons .btn {
+    width: 100%;
+    text-align: center;
+  }
+  .stats-bar {
+    flex-direction: column;
+    gap: 3rem;
+    padding: 2rem;
+    border-radius: 20px;
+  }
+  .stats-bar::before {
+    border-radius: 20px;
+  }
+  .stat-item h2 {
     font-size: 3rem;
+  }
+  .stat-item span {
+    font-size: 0.8rem;
   }
   .features {
     grid-template-columns: 1fr;
@@ -643,12 +671,16 @@ footer {
   }
   .prose {
     padding: 0 1rem;
+    margin: 2rem auto;
   }
   .prose p {
     padding: 1.5rem;
     font-size: 1rem;
   }
   .prose h2 {
-    font-size: 2rem;
+    font-size: 1.8rem;
+  }
+  .showcase-img-container {
+    padding: 1px;
   }
 }
