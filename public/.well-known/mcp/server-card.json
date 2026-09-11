@@ -1,8 +1,22 @@
 {
-  "mcpServers": {
-    "nighthawk": {
-      "command": "npx",
-      "args": ["-y", "@modelcontextprotocol/server-nighthawk"]
+  "serverInfo": {
+    "name": "nighthawk-pdf-reader",
+    "version": "1.0.0"
+  },
+  "name": "nighthawk-pdf-reader",
+  "version": "1.0.0",
+  "description": "Model Context Protocol (MCP) server providing context and tools for Nighthawk PDF Reader.",
+  "endpoint": "https://nighthawkpdfreader.app/mcp",
+  "capabilities": {
+    "tools": {
+      "listChanged": false
+    },
+    "resources": {
+      "subscribe": false,
+      "listChanged": false
+    },
+    "prompts": {
+      "listChanged": false
     }
   }
 }

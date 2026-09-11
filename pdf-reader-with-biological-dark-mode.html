@@ -122,6 +122,90 @@
     <meta name="twitter:url" content="https://www.nighthawkpdfreader.app/" />
     
     <meta name="theme-color" content="#0a0a0c" />
+    <link rel="ai-catalog" href="/.well-known/ai-catalog.json" />
+    
+    <!-- WebMCP Tool Registration for AI Agents -->
+    <script>
+      (function initWebMCP() {
+        try {
+          if (typeof window === 'undefined') return;
+          
+          if (!navigator.modelContext) {
+            const _tools = new Map();
+            navigator.modelContext = {
+              registerTool: function(tool, options) {
+                const id = tool.name;
+                _tools.set(id, { tool: tool, options: options });
+                if (options && options.signal) {
+                  options.signal.addEventListener('abort', function() {
+                    _tools.delete(id);
+                  });
+                }
+                return {
+                  unregister: function() {
+                    _tools.delete(id);
+                  }
+                };
+              },
+              get registeredTools() {
+                return Array.from(_tools.values()).map(function(t) { return t.tool; });
+              }
+            };
+          }
+
+          if (typeof navigator.modelContext.registerTool === 'function') {
+            const controller = new AbortController();
+            const signal = controller.signal;
+
+            navigator.modelContext.registerTool({
+              name: 'download_pdf_reader',
+              description: 'Download the Nighthawk PDF Reader installer or portable binary for Windows.',
+              inputSchema: {
+                type: 'object',
+                properties: {
+                  packageType: {
+                    type: 'string',
+                    enum: ['installer', 'portable'],
+                    description: 'Download format (installer or portable)'
+                  }
+                }
+              },
+              execute: async function(params) {
+                const type = (params && params.packageType) || 'installer';
+                const url = type === 'portable'
+                  ? 'https://github.com/sailin0037/nightwank/releases/download/v1.0.0/Nighthawk-Windows-Portable.zip'
+                  : 'https://github.com/sailin0037/nightwank/releases/download/v1.0.0/Nighthawk-Setup.exe';
+                window.location.href = url;
+                return { success: true, downloadUrl: url };
+              }
+            }, { signal: signal });
+
+            navigator.modelContext.registerTool({
+              name: 'get_documentation',
+              description: 'Fetch and view the Nighthawk PDF Reader user manual, shader documentation, and LLM text guides.',
+              inputSchema: {
+                type: 'object',
+                properties: {
+                  topic: {
+                    type: 'string',
+                    description: 'Documentation topic'
+                  }
+                }
+              },
+              execute: async function(params) {
+                return {
+                  title: 'Nighthawk PDF Reader Documentation',
+                  overviewUrl: 'https://nighthawkpdfreader.app/llms.txt',
+                  markdownUrl: 'https://nighthawkpdfreader.app/index.md'
+                };
+              }
+            }, { signal: signal });
+          }
+        } catch (e) {
+          console.warn('WebMCP init notice:', e);
+        }
+      })();
+    </script>
     <link rel="preload" href="/nighthawk.webp" as="image" type="image/webp" fetchpriority="high">
   
     <script type="application/ld+json">
@@ -256,12 +340,12 @@
         <div style="max-width: 1000px; margin: 0 auto; text-align: center;">
           <h3 style="color: #ffffff; font-size: 1.25rem; font-weight: 600; margin-bottom: 1.5rem;">Explore More Specialized Guides & Benchmarks</h3>
           <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem 1.5rem; font-size: 0.9rem;">
-          <li><a href="/how-to-fix-pdf-scrolling-lag.html" style="color: #10b981; text-decoration: none; font-weight: 500;">Fix PDF Scrolling Lag. Experience 60fps.</a></li>
-          <li><a href="/foxit-reader-free-alternative.html" style="color: #10b981; text-decoration: none; font-weight: 500;">The Better Foxit Alternative.</a></li>
           <li><a href="/adobe-acrobat-free-alternative-no-subscription.html" style="color: #10b981; text-decoration: none; font-weight: 500;">Ditch Adobe Acrobat. A 100% Free Native C++ Alternative.</a></li>
+          <li><a href="/pdf-reader-for-research-papers-and-students.html" style="color: #10b981; text-decoration: none; font-weight: 500;">The Ultimate PDF Reader For Students & Researchers.</a></li>
+          <li><a href="/why-does-adobe-acrobat-use-so-much-ram.html" style="color: #10b981; text-decoration: none; font-weight: 500;">Stop the Memory Leaks. Switch to Nighthawk.</a></li>
+          <li><a href="/fastest-pdf-reader-for-low-end-pc.html" style="color: #10b981; text-decoration: none; font-weight: 500;">The Fastest PDF Reader. Built for Every PC.</a></li>
           <li><a href="/pdf-reader-with-biometric-vault.html" style="color: #10b981; text-decoration: none; font-weight: 500;">Biometric Security. For Sensitive Documents.</a></li>
-          <li><a href="/sumatra-pdf-alternative-with-dark-mode.html" style="color: #10b981; text-decoration: none; font-weight: 500;">Fast like Sumatra. Beautifully Modern.</a></li>
-          <li><a href="/pdf-reader-without-ads-or-popups.html" style="color: #10b981; text-decoration: none; font-weight: 500;">No Ads. No Popups. Just Pure Focus.</a></li>
+          <li><a href="/offline-pdf-reader-local-first.html" style="color: #10b981; text-decoration: none; font-weight: 500;">Your Data Stays On Your Device.</a></li>
           </ul>
         </div>
       </section>

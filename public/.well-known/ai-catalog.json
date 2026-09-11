@@ -1,0 +1,18 @@
+{
+  "name": "Nighthawk PDF Reader AI Catalog",
+  "version": "1.0.0",
+  "endpoints": [
+    {
+      "name": "MCP Server",
+      "url": "https://nighthawkpdfreader.app/mcp"
+    },
+    {
+      "name": "A2A Agent",
+      "url": "https://nighthawkpdfreader.app/api/a2a"
+    },
+    {
+      "name": "API Catalog",
+      "url": "https://nighthawkpdfreader.app/.well-known/api-catalog"
+    }
+  ]
+}

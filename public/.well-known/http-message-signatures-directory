@@ -1,3 +1,12 @@
 {
-  "keys": []
+  "keys": [
+    {
+      "kty": "RSA",
+      "n": "nCtRdkC8ME1cRBUAoQQ-e6TN-WQXMt_WMRXDvmgY2Ve_cpbqH8FEX9sncXcQHLd-81Um4Rkehb2mr_hIN3ihXtyXHZ2yAC5jmpGvikL5STtKTm688Vz8LWtUtpeN0viD_mo6FvhTcAYW9bel3zlOw5t9TcFGheZi7CKQ6POuv6iuhbzV6uP9dPjLZXq_puiP-cdiDasHaZLKjoeLeKnaAMBApkKtcdVjxxHVP2RJmcEcwy3P0ZzvkaF6uzNBywUAryoobRNQU6dJcVYRbEOKO4KhpP4tGrOZudHV5lxx7Pfr8MGVOFrDK5Q9EhaIw6GUmCZjwwxQiMuST4j4nd7V_w",
+      "e": "AQAB",
+      "kid": "nighthawk-bot-key-1",
+      "use": "sig",
+      "alg": "RS256"
+    }
+  ]
 }

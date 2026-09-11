@@ -1,40 +1,33 @@
 {
   "$schema": "https://a2a-protocol.org/schemas/v1/agent-card.json",
   "name": "Nighthawk PDF Reader Agent",
-  "description": "Assistant and integration agent for Nighthawk PDF Reader, providing dark mode PDF viewing capabilities and documentation.",
   "version": "1.0.0",
-  "protocol_version": "0.3.0",
-  "provider": {
-    "organization": "Nighthawk",
-    "url": "https://nighthawkpdfreader.app"
-  },
+  "description": "AI agent providing dark mode PDF document viewing, tool actions, and documentation discovery.",
+  "supportedInterfaces": [
+    {
+      "url": "https://nighthawkpdfreader.app/api/a2a",
+      "protocol": "HTTP+JSON"
+    },
+    {
+      "url": "https://nighthawkpdfreader.app/api/a2a",
+      "protocolBinding": "HTTP+JSON",
+      "protocolVersion": "1.0"
+    }
+  ],
   "capabilities": {
     "streaming": false,
-    "push_notifications": false
+    "pushNotifications": false
   },
   "skills": [
     {
-      "id": "download-pdf-reader",
+      "id": "download_pdf_reader",
       "name": "Download PDF Reader",
-      "description": "Download installer and portable binaries for Nighthawk PDF Reader on Windows.",
-      "input_modes": ["text/plain"],
-      "output_modes": ["application/json", "text/plain"],
-      "url": "https://nighthawkpdfreader.app/download.html"
+      "description": "Download Windows desktop application installer or portable version."
     },
     {
-      "id": "get-documentation",
-      "name": "Get Documentation",
-      "description": "Retrieve markdown documentation and LLM index for Nighthawk PDF Reader.",
-      "input_modes": ["text/plain"],
-      "output_modes": ["text/markdown"],
-      "url": "https://nighthawkpdfreader.app/llms.txt"
-    }
-  ],
-  "supported_interfaces": [
-    {
-      "protocol_binding": "HTTP+JSON",
-      "protocol_version": "1.0",
-      "url": "https://nighthawkpdfreader.app/api"
+      "id": "view_documentation",
+      "name": "View Documentation",
+      "description": "Read documentation, shader specifications, and LLM guides for Nighthawk PDF Reader."
     }
   ]
 }
