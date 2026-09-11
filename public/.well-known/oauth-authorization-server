@@ -2,7 +2,56 @@
   "issuer": "https://nighthawkpdfreader.app",
   "authorization_endpoint": "https://nighthawkpdfreader.app/oauth/authorize",
   "token_endpoint": "https://nighthawkpdfreader.app/oauth/token",
-  "response_types_supported": ["code", "token"],
-  "subject_types_supported": ["public"],
-  "id_token_signing_alg_values_supported": ["RS256"]
+  "revocation_endpoint": "https://nighthawkpdfreader.app/oauth/revoke",
+  "response_types_supported": [
+    "code",
+    "token"
+  ],
+  "grant_types_supported": [
+    "urn:ietf:params:oauth:grant-type:jwt-bearer",
+    "urn:workos:agent-auth:grant-type:claim"
+  ],
+  "subject_types_supported": [
+    "public"
+  ],
+  "id_token_signing_alg_values_supported": [
+    "RS256"
+  ],
+  "scopes_supported": [
+    "read"
+  ],
+  "bearer_methods_supported": [
+    "header"
+  ],
+  "agent_auth": {
+    "skill": "https://nighthawkpdfreader.app/auth.md",
+    "register_uri": "https://nighthawkpdfreader.app/agent/auth",
+    "identity_endpoint": "https://nighthawkpdfreader.app/agent/auth",
+    "claim_uri": "https://nighthawkpdfreader.app/agent/claim",
+    "claim_endpoint": "https://nighthawkpdfreader.app/agent/claim",
+    "revocation_uri": "https://nighthawkpdfreader.app/oauth/revoke",
+    "identity_types_supported": [
+      "anonymous",
+      "identity_assertion"
+    ],
+    "anonymous": {
+      "credential_types_supported": [
+        "api_key",
+        "bearer_token"
+      ]
+    },
+    "identity_assertion": {
+      "assertion_types_supported": [
+        "urn:ietf:params:oauth:token-type:id-jag",
+        "verified_email"
+      ],
+      "credential_types_supported": [
+        "api_key",
+        "bearer_token"
+      ]
+    },
+    "events_supported": [
+      "https://schemas.workos.com/events/agent/auth/identity/assertion/revoked"
+    ]
+  }
 }

@@ -2,5 +2,11 @@
   "resource": "https://nighthawkpdfreader.app",
   "authorization_servers": [
     "https://nighthawkpdfreader.app"
+  ],
+  "scopes_supported": [
+    "read"
+  ],
+  "bearer_methods_supported": [
+    "header"
   ]
 }

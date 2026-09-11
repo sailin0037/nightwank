@@ -2,4 +2,17 @@
   Link: </.well-known/api-catalog>; rel="api-catalog"
   Link: </llms.txt>; rel="alternate"; type="text/markdown"
   Link: </index.md>; rel="alternate"; type="text/markdown"
-  Link: </.well-known/auth.md>; rel="auth"
+  Link: </auth.md>; rel="auth"
+  Link: </.well-known/oauth-protected-resource>; rel="oauth-protected-resource"
+  Link: </.well-known/oauth-authorization-server>; rel="oauth-authorization-server"
+
+/auth.md
+  Content-Type: text/markdown; charset=utf-8
+  Access-Control-Allow-Origin: *
+
+/.well-known/auth.md
+  Content-Type: text/markdown; charset=utf-8
+  Access-Control-Allow-Origin: *
+
+/.well-known/*
+  Access-Control-Allow-Origin: *

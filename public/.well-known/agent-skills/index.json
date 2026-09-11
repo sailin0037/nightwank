@@ -1,0 +1,14 @@
+{
+  "skills": [
+    {
+      "name": "download-pdf-reader",
+      "description": "Download Nighthawk PDF Reader for Windows with hardware-accelerated dark mode.",
+      "url": "https://nighthawkpdfreader.app/download.html"
+    },
+    {
+      "name": "nighthawk-documentation",
+      "description": "Query comprehensive product overview, shader documentation, and LLM text guides.",
+      "url": "https://nighthawkpdfreader.app/llms.txt"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "$schema": "https://modelcontextprotocol.io/schema/mcp.json",
+  "name": "nighthawk-pdf-reader",
+  "description": "MCP server providing tool execution and context for Nighthawk PDF Reader.",
+  "version": "1.0.0",
+  "transport": {
+    "type": "sse",
+    "url": "https://nighthawkpdfreader.app/mcp/sse"
+  },
+  "capabilities": {
+    "tools": true,
+    "resources": true,
+    "prompts": false
+  }
+}
