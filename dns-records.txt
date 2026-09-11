@@ -1,0 +1,8 @@
+; DNS-AID Records for Nighthawk PDF Reader (nighthawkpdfreader.app)
+; Can be imported into Cloudflare DNS (DNS -> Records -> Import and Export -> Import)
+; or added manually in the Cloudflare DNS dashboard.
+
+_a2a._agents.nighthawkpdfreader.app. 3600 IN HTTPS 1 nighthawkpdfreader.app. alpn="a2a" port=443 mandatory=alpn,port
+_mcp._agents.nighthawkpdfreader.app. 3600 IN HTTPS 1 nighthawkpdfreader.app. alpn="mcp" port=443 mandatory=alpn,port
+_index._agents.nighthawkpdfreader.app. 3600 IN HTTPS 1 nighthawkpdfreader.app. port=443
+_index._agents.nighthawkpdfreader.app. 3600 IN TXT "https://nighthawkpdfreader.app/.well-known/agent-skills/index.json"

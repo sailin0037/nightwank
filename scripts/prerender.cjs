@@ -61,17 +61,20 @@ seoPages.forEach(page => {
     {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
-      "itemListElement": [{
-        "@type": "ListItem",
-        "position": 1,
-        "name": "Home",
-        "item": "https://www.nighthawkpdfreader.app/"
-      },{
-        "@type": "ListItem",
-        "position": 2,
-        "name": "${page.title}",
-        "item": "${pageUrl}"
-      }]
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.nighthawkpdfreader.app/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": ${JSON.stringify(page.title)},
+          "item": "${pageUrl}"
+        }
+      ]
     }
     </script>
   `;
