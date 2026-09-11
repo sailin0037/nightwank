@@ -1,19 +1,23 @@
 {
   "specVersion": "1.0",
-  "name": "Nighthawk PDF Reader AI Catalog",
-  "version": "1.0.0",
-  "endpoints": [
+  "host": {
+    "displayName": "Nighthawk PDF Reader",
+    "documentation": "https://nighthawkpdfreader.app/llms.txt"
+  },
+  "entries": [
     {
-      "name": "MCP Server",
-      "url": "https://nighthawkpdfreader.app/mcp"
+      "identifier": "urn:air:nighthawkpdfreader.app:mcp:server",
+      "displayName": "Nighthawk PDF Reader MCP Server",
+      "type": "application/mcp-server+json",
+      "url": "https://nighthawkpdfreader.app/mcp",
+      "description": "Model Context Protocol server for Nighthawk PDF Reader."
     },
     {
-      "name": "A2A Agent",
-      "url": "https://nighthawkpdfreader.app/api/a2a"
-    },
-    {
-      "name": "API Catalog",
-      "url": "https://nighthawkpdfreader.app/.well-known/api-catalog"
+      "identifier": "urn:air:nighthawkpdfreader.app:agent:a2a",
+      "displayName": "Nighthawk PDF Reader A2A Agent",
+      "type": "application/json",
+      "url": "https://nighthawkpdfreader.app/.well-known/agent-card.json",
+      "description": "A2A Agent Card for agent-to-agent collaboration."
     }
   ]
 }
