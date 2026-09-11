@@ -144,6 +144,9 @@
   
   </head>
   <body>
+    <!-- Custom Cursor Glow -->
+    <div class="custom-cursor"></div>
+
     <!-- The WebGL Golden Lines Background -->
     <canvas id="webgl-canvas"></canvas>
     
@@ -157,17 +160,17 @@
           <a href="/annotations.html">Annotations</a>
         </nav>
         <div class="header-actions">
-          <a href="/downloads/Nighthawk-Setup.exe" class="btn btn-white">Download App &rsaquo;</a>
+          <a href="https://github.com/sailin0037/nightwank/releases/latest/download/Nighthawk-Setup.exe" class="btn btn-white">Download App &rsaquo;</a>
         </div>
       </header>
       <main>
         <!-- Atomik style 3-column hero layout -->
         <section class="hero-cinematic">
-          <div class="hero-left">
+          <div class="hero-left reveal">
             <h1>Ditch Adobe Acrobat.<br/><span style="background: linear-gradient(to right, #10b981, #059669); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">A 100% Free Native C++ Alternative.</span></h1>
             <div class="hero-buttons">
-              <a href="/downloads/Nighthawk-Setup.exe" class="btn btn-white">Download Setup (.exe) &rsaquo;</a>
-              <a href="/downloads/Nighthawk-Windows-Portable.zip" class="btn btn-outline">Portable (.zip)</a>
+              <a href="https://github.com/sailin0037/nightwank/releases/latest/download/Nighthawk-Setup.exe" class="btn btn-white">Download Setup (.exe) &rsaquo;</a>
+              <a href="https://github.com/sailin0037/nightwank/releases/latest/download/Nighthawk-Windows-Portable.zip" class="btn btn-outline">Portable (.zip)</a>
             </div>
             <div class="download-tip">
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
@@ -180,28 +183,48 @@
             <img src="/nighthawk.webp" alt="Nighthawk Stealth Jet" class="floating-asset" width="800" height="600" fetchpriority="high" />
           </div>
 
-          <div class="hero-right">
-            <p>Stop paying massive monthly subscriptions just to read and highlight PDFs. Nighthawk is completely free, forever, with zero premium tiers. Engineered purely in native C++ with Direct2D hardware acceleration for zero lag, zero memory bloat, and total offline privacy.</p>
+          <div class="hero-right reveal">
+            <p>Experience blazing fast document rendering with our zero-distraction interface. Written purely in native C++ for maximum performance, ensuring it runs lightning fast on any PC. Completely free.</p>
+          </div>
+        </section>
+
+        <!-- Stats Bar -->
+        <section class="stats-bar reveal" id="stats">
+          <div class="stat-item">
+            <h2 class="counter" data-target="27">27</h2>
+            <span>MB Installer</span>
+          </div>
+          <div class="stat-item">
+            <h2 class="counter" data-target="0.3" data-decimals="1">0</h2>
+            <span>Seconds Startup</span>
+          </div>
+          <div class="stat-item">
+            <h2>100%</h2>
+            <span>Free Forever</span>
+          </div>
+          <div class="stat-item">
+            <h2>Zero</h2>
+            <span>Telemetry</span>
           </div>
         </section>
 
         <!-- Features -->
         <section class="features" id="features">
-          <div class="feature-card">
+          <div class="feature-card reveal">
             <div class="feature-icon">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
             </div>
             <h3>Lightning Fast on Any PC</h3>
             <p>Written in native, bare-metal C++ with Direct2D hardware acceleration. Nighthawk PDF Reader opens massive documents instantly without hogging your RAM.</p>
           </div>
-          <div class="feature-card">
+          <div class="feature-card reveal" style="transition-delay: 100ms;">
             <div class="feature-icon">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></svg>
             </div>
             <h3>Biological Dark Modes</h3>
             <p>Go beyond simple inversion. Use 'Predator' or 'Night Vision' modes to protect your eyes during late-night reading sessions.</p>
           </div>
-          <div class="feature-card">
+          <div class="feature-card reveal" style="transition-delay: 200ms;">
             <div class="feature-icon">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
             </div>
@@ -209,8 +232,17 @@
             <p>The best PDF reader with annotation features completely free. Highlight, draw, and export your notes seamlessly.</p>
           </div>
         </section>
+
+        <!-- App Showcase -->
+        <section class="showcase reveal">
+          <div class="showcase-glow"></div>
+          <div class="showcase-img-container">
+            <img src="/real-normal.png" alt="Nighthawk Normal Mode UI" class="showcase-img img-normal" />
+            <img src="/real-predator.png" alt="Nighthawk Predator Mode UI" class="showcase-img img-predator" />
+          </div>
+        </section>
       
-        <article class="prose seo-content">
+        <article class="prose seo-content reveal">
           <h2>Comprehensive Deep Dive: Maximizing Productivity</h2>
           <h3>Advanced Workflow Optimization</h3>
           <p>When optimizing your workflow for peak efficiency, the choice of a lightweight PDF reader becomes absolutely critical. In modern digital environments, users frequently handle massive documents, ranging from complex architectural blueprints to thousands of pages of legal discovery. The bottleneck in productivity is no longer hardware, but the bloated software that fails to utilize that hardware effectively.</p>
@@ -224,12 +256,12 @@
         <div style="max-width: 1000px; margin: 0 auto; text-align: center;">
           <h3 style="color: #ffffff; font-size: 1.25rem; font-weight: 600; margin-bottom: 1.5rem;">Explore More Specialized Guides & Benchmarks</h3>
           <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem 1.5rem; font-size: 0.9rem;">
+          <li><a href="/pdf-reader-for-research-papers-and-students.html" style="color: #10b981; text-decoration: none; font-weight: 500;">The Ultimate PDF Reader For Students & Researchers.</a></li>
+          <li><a href="/offline-pdf-reader-local-first.html" style="color: #10b981; text-decoration: none; font-weight: 500;">Your Data Stays On Your Device.</a></li>
+          <li><a href="/how-to-fix-pdf-scrolling-lag.html" style="color: #10b981; text-decoration: none; font-weight: 500;">Fix PDF Scrolling Lag. Experience 60fps.</a></li>
+          <li><a href="/fastest-pdf-reader-for-low-end-pc.html" style="color: #10b981; text-decoration: none; font-weight: 500;">The Fastest PDF Reader. Built for Every PC.</a></li>
           <li><a href="/sumatra-pdf-alternative-with-dark-mode.html" style="color: #10b981; text-decoration: none; font-weight: 500;">Fast like Sumatra. Beautifully Modern.</a></li>
           <li><a href="/pdf-reader-with-biological-dark-mode.html" style="color: #10b981; text-decoration: none; font-weight: 500;">True Biological Dark Mode.</a></li>
-          <li><a href="/why-does-adobe-acrobat-use-so-much-ram.html" style="color: #10b981; text-decoration: none; font-weight: 500;">Stop the Memory Leaks. Switch to Nighthawk.</a></li>
-          <li><a href="/pdf-reader-with-biometric-vault.html" style="color: #10b981; text-decoration: none; font-weight: 500;">Biometric Security. For Sensitive Documents.</a></li>
-          <li><a href="/fastest-pdf-reader-for-low-end-pc.html" style="color: #10b981; text-decoration: none; font-weight: 500;">The Fastest PDF Reader. Built for Every PC.</a></li>
-          <li><a href="/foxit-reader-free-alternative.html" style="color: #10b981; text-decoration: none; font-weight: 500;">The Better Foxit Alternative.</a></li>
           </ul>
         </div>
       </section>

@@ -25,3 +25,9 @@ dist-ssr
 
 .vercel
 .env*
+
+# Downloads and large binary release archives
+public/downloads/
+downloads/
+*.zip
+*.exe
