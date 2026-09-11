@@ -1,0 +1,18 @@
+{
+  "schema_version": "v1",
+  "name_for_human": "Nighthawk PDF Reader",
+  "name_for_model": "nighthawk_pdf_reader",
+  "description_for_human": "Lightweight, blazing fast PDF reader with dark mode.",
+  "description_for_model": "Plugin for interacting with the Nighthawk PDF Reader website documentation and download paths.",
+  "auth": {
+    "type": "none"
+  },
+  "api": {
+    "type": "openapi",
+    "url": "https://nighthawkpdfreader.app/openapi.json",
+    "is_user_authenticated": false
+  },
+  "logo_url": "https://nighthawkpdfreader.app/favicon.ico",
+  "contact_email": "support@nighthawkpdfreader.app",
+  "legal_info_url": "https://nighthawkpdfreader.app/privacy.html"
+}

@@ -1,0 +1,4 @@
+{
+  "bot_auth_enabled": true,
+  "required_headers": ["Signature", "Signature-Input"]
+}

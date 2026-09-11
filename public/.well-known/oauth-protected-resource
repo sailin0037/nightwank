@@ -1,0 +1,6 @@
+{
+  "resource": "https://nighthawkpdfreader.app",
+  "authorization_servers": [
+    "https://nighthawkpdfreader.app"
+  ]
+}

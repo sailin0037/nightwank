@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "nighthawk": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-nighthawk"]
+    }
+  }
+}

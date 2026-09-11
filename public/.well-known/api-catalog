@@ -1,0 +1,13 @@
+{
+  "linkset": [
+    {
+      "anchor": "https://nighthawkpdfreader.app",
+      "https://api.cloudflare.com/link-relations/api-catalog": [
+        {
+          "href": "https://nighthawkpdfreader.app/openapi.json",
+          "type": "application/openapi+json"
+        }
+      ]
+    }
+  ]
+}

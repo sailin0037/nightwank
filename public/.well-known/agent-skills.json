@@ -1,0 +1,14 @@
+{
+  "skills": [
+    {
+      "name": "download_pdf_reader",
+      "description": "Download the Nighthawk PDF Reader for Windows.",
+      "url": "https://nighthawkpdfreader.app/download.html"
+    },
+    {
+      "name": "read_documentation",
+      "description": "Read documentation and features of Nighthawk PDF Reader.",
+      "url": "https://nighthawkpdfreader.app/llms.txt"
+    }
+  ]
+}
