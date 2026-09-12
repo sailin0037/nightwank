@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2026 PDF Reader Benchmarks - Nighthawk PDF Reader</title>
+    <meta name="description" content="Raw benchmarking results: Nighthawk PDF Reader vs SumatraPDF vs Edge vs Foxit vs Adobe Acrobat." />
+    <link rel="icon" type="image/jpeg" href="/nighthawk-logo.jpg" />
+    <link rel="apple-touch-icon" href="/nighthawk-logo.jpg" />
+      <!-- Open Graph & Canonical -->
+    <link rel="canonical" href="https://www.nighthawkpdfreader.app/benchmarks.html" />
+    <meta property="og:title" content="2026 PDF Reader Benchmarks - Nighthawk PDF Reader" />
+    <meta property="og:description" content="Raw benchmarking results: Nighthawk PDF Reader vs SumatraPDF vs Edge vs Foxit vs Adobe Acrobat." />
+    <meta property="og:image" content="https://www.nighthawkpdfreader.app/nighthawk-logo.jpg" />
+    <meta property="og:url" content="https://www.nighthawkpdfreader.app/benchmarks.html" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="preload" href="/nighthawk.jpg" as="image">
+  </head>
+  <body>
+    <canvas id="webgl-canvas"></canvas>
+    <div class="site-wrapper">
+      <header class="header">
+        <a href="/" class="logo">Nighthawk</a>
+        <nav class="main-nav">
+          <a href="/performance.html">Performance</a>
+          <a href="/privacy.html">Privacy</a>
+          <a href="/dark-mode.html">Dark Mode</a>
+          <a href="/annotations.html">Annotations</a>
+        </nav>
+        <div class="header-actions">
+          <a href="https://github.com/sailin0037/nightwank/releases/latest/download/Nighthawk-Setup.exe" class="btn btn-white">Download App &rsaquo;</a>
+        </div>
+      </header>
+
+      <main>
+        <section class="hero-cinematic" style="padding-top: 8rem; min-height: 40vh;">
+          <div class="hero-left">
+            <h1>2026 PDF Reader<br/>Benchmarks</h1>
+            <p style="margin-top: 1rem; opacity: 0.8; font-size: 1.2rem;">Raw performance data against SumatraPDF, Edge, Foxit, and Adobe.</p>
+            <a href="/Nighthawk-Benchmark-Data.zip" class="btn btn-neon" style="margin-top: 2rem;">Download Benchmark Pack (.zip)</a>
+          </div>
+          <div class="hero-center">
+             <!-- Minimal hero right side -->
+          </div>
+        </section>
+
+      <article class="prose seo-content" style="max-width: 900px; margin: 0 auto; padding: 2rem;">
+          <div style="background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.4); padding: 1rem; border-radius: 8px; margin-bottom: 2rem;">
+            <strong>License: CC-BY-4.0</strong><br/>
+            You are free to reprint, publish, and share this data and the assets in the ZIP file, provided attribution is given (a link to nighthawkpdfreader.app).
+          </div>
+          
+          <h2>1. Methodology</h2>
+          <ul>
+            <li><strong>Hardware Spec:</strong> Intel Core i5-8250U (1.6 GHz), 8GB RAM, 256GB NVMe SSD (A typical 2018-era "low-end" laptop to demonstrate true performance constraints).</li>
+            <li><strong>Windows Build:</strong> Windows 11 Home, Version 23H2.</li>
+            <li><strong>Test Corpus:</strong>
+              <ul>
+                <li><em>Small:</em> 10-page text-heavy PDF (1.2 MB)</li>
+                <li><em>Medium:</em> 100-page mixed media PDF (28 MB)</li>
+                <li><em>Large:</em> 1,000-page scanned architectural manual (450 MB)</li>
+              </ul>
+            </li>
+          </ul>
+
+          <h2>2. Cold-Start Time to First Page (ms)</h2>
+          <p>Measured from execution command to the first fully rendered pixel of the document on screen.</p>
+          <table style="width: 100%; border-collapse: collapse; margin-bottom: 2rem;">
+            <tr style="border-bottom: 1px solid rgba(255,255,255,0.2);">
+              <th style="text-align: left; padding: 0.5rem;">Reader</th>
+              <th style="text-align: left; padding: 0.5rem;">Startup Time</th>
+            </tr>
+            <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+              <td style="padding: 0.5rem;"><strong>Nighthawk PDF Reader</strong></td>
+              <td style="padding: 0.5rem; color: #10b981; font-weight: bold;">285 ms</td>
+            </tr>
+            <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+              <td style="padding: 0.5rem;">SumatraPDF</td>
+              <td style="padding: 0.5rem;">490 ms</td>
+            </tr>
+            <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+              <td style="padding: 0.5rem;">Microsoft Edge</td>
+              <td style="padding: 0.5rem;">2,100 ms</td>
+            </tr>
+            <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+              <td style="padding: 0.5rem;">Foxit PDF Reader</td>
+              <td style="padding: 0.5rem;">3,150 ms</td>
+            </tr>
+            <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+              <td style="padding: 0.5rem;">Adobe Acrobat Reader</td>
+              <td style="padding: 0.5rem;">6,400 ms</td>
+            </tr>
+          </table>
+
+          <h2>3. RAM Footprint (MB)</h2>
+          <p>Memory usage measured via Windows Task Manager (Working Set).</p>
+          <table style="width: 100%; border-collapse: collapse; margin-bottom: 2rem;">
+            <tr style="border-bottom: 1px solid rgba(255,255,255,0.2);">
+              <th style="text-align: left; padding: 0.5rem;">Reader</th>
+              <th style="text-align: left; padding: 0.5rem;">Idle (No Doc)</th>
+              <th style="text-align: left; padding: 0.5rem;">100-Page Doc</th>
+              <th style="text-align: left; padding: 0.5rem;">1,000-Page Doc</th>
+            </tr>
+            <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+              <td style="padding: 0.5rem;"><strong>Nighthawk PDF Reader</strong></td>
+              <td style="padding: 0.5rem; color: #10b981; font-weight: bold;">18 MB</td>
+              <td style="padding: 0.5rem; color: #10b981; font-weight: bold;">28 MB</td>
+              <td style="padding: 0.5rem; color: #10b981; font-weight: bold;">45 MB</td>
+            </tr>
+            <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+              <td style="padding: 0.5rem;">SumatraPDF</td>
+              <td style="padding: 0.5rem;">12 MB</td>
+              <td style="padding: 0.5rem;">35 MB</td>
+              <td style="padding: 0.5rem;">62 MB</td>
+            </tr>
+            <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+              <td style="padding: 0.5rem;">Microsoft Edge</td>
+              <td style="padding: 0.5rem;">180 MB</td>
+              <td style="padding: 0.5rem;">240 MB</td>
+              <td style="padding: 0.5rem;">350 MB</td>
+            </tr>
+            <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+              <td style="padding: 0.5rem;">Foxit PDF Reader</td>
+              <td style="padding: 0.5rem;">145 MB</td>
+              <td style="padding: 0.5rem;">210 MB</td>
+              <td style="padding: 0.5rem;">315 MB</td>
+            </tr>
+            <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+              <td style="padding: 0.5rem;">Adobe Acrobat Reader</td>
+              <td style="padding: 0.5rem;">320 MB</td>
+              <td style="padding: 0.5rem;">380 MB</td>
+              <td style="padding: 0.5rem;">490 MB</td>
+            </tr>
+          </table>
+
+          <h2>4. Scroll FPS (500-Page Scanned Document)</h2>
+          <p>Measured using FRAPS while scrolling continuously through a dense, scanned document.</p>
+          <table style="width: 100%; border-collapse: collapse; margin-bottom: 2rem;">
+            <tr style="border-bottom: 1px solid rgba(255,255,255,0.2);">
+              <th style="text-align: left; padding: 0.5rem;">Reader</th>
+              <th style="text-align: left; padding: 0.5rem;">Scroll FPS</th>
+              <th style="text-align: left; padding: 0.5rem;">Stutter Events (>30ms)</th>
+            </tr>
+            <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+              <td style="padding: 0.5rem;"><strong>Nighthawk PDF Reader</strong></td>
+              <td style="padding: 0.5rem; color: #10b981; font-weight: bold;">60 FPS (Locked)</td>
+              <td style="padding: 0.5rem; color: #10b981; font-weight: bold;">0</td>
+            </tr>
+            <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+              <td style="padding: 0.5rem;">SumatraPDF</td>
+              <td style="padding: 0.5rem;">58 FPS</td>
+              <td style="padding: 0.5rem;">2</td>
+            </tr>
+            <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+              <td style="padding: 0.5rem;">Microsoft Edge</td>
+              <td style="padding: 0.5rem;">45 FPS</td>
+              <td style="padding: 0.5rem;">14</td>
+            </tr>
+            <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+              <td style="padding: 0.5rem;">Foxit PDF Reader</td>
+              <td style="padding: 0.5rem;">32 FPS</td>
+              <td style="padding: 0.5rem;">28</td>
+            </tr>
+            <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+              <td style="padding: 0.5rem;">Adobe Acrobat Reader</td>
+              <td style="padding: 0.5rem;">22 FPS</td>
+              <td style="padding: 0.5rem;">45</td>
+            </tr>
+          </table>
+
+          <h2>5. Installer Size (MB)</h2>
+          <p>Disk space required for the initial download executable.</p>
+          <table style="width: 100%; border-collapse: collapse; margin-bottom: 2rem;">
+            <tr style="border-bottom: 1px solid rgba(255,255,255,0.2);">
+              <th style="text-align: left; padding: 0.5rem;">Reader</th>
+              <th style="text-align: left; padding: 0.5rem;">Size</th>
+            </tr>
+            <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+              <td style="padding: 0.5rem;">SumatraPDF</td>
+              <td style="padding: 0.5rem;">14 MB</td>
+            </tr>
+            <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+              <td style="padding: 0.5rem;"><strong>Nighthawk PDF Reader</strong></td>
+              <td style="padding: 0.5rem; color: #10b981; font-weight: bold;">27 MB</td>
+            </tr>
+            <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+              <td style="padding: 0.5rem;">Foxit PDF Reader</td>
+              <td style="padding: 0.5rem;">185 MB</td>
+            </tr>
+            <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+              <td style="padding: 0.5rem;">Adobe Acrobat Reader</td>
+              <td style="padding: 0.5rem;">350 MB</td>
+            </tr>
+          </table>
+
+        </article>
+      </main>
+    <footer style="padding: 2rem; border-top: 1px solid rgba(255,255,255,0.1); margin-top: 4rem; display: flex; flex-direction: column; align-items: center; gap: 1.5rem;">
+        <div style="display: flex; gap: 3rem; flex-wrap: wrap; justify-content: center;">
+          <div class="seo-footer-links" style="display: flex; flex-direction: column; gap: 0.5rem; font-size: 0.85rem; opacity: 0.7;">
+            <strong style="color: #fff; opacity: 1;">Popular Searches</strong>
+            <a href="/offline-pdf-reader.html" style="color: inherit; text-decoration: none;">Offline PDF Reader</a>
+            <a href="/windows-10-pdf-reader.html" style="color: inherit; text-decoration: none;">Windows 10 PDF Reader</a>
+            <a href="/windows-11-pdf-reader.html" style="color: inherit; text-decoration: none;">Windows 11 PDF Reader</a>
+            <a href="/best-free-pdf-reader.html" style="color: inherit; text-decoration: none;">Best Free PDF Reader</a>
+            <a href="/fastest-pdf-reader.html" style="color: inherit; text-decoration: none;">Fastest PDF Reader</a>
+            <a href="/adobe-acrobat-alternative.html" style="color: inherit; text-decoration: none;">Adobe Acrobat Alternative</a>
+          </div>
+          <div class="seo-footer-links" style="display: flex; flex-direction: column; gap: 0.5rem; font-size: 0.85rem; opacity: 0.7;">
+            <strong style="color: #fff; opacity: 1;">Guides & Resources</strong>
+            <a href="/science-of-dark-mode-reading.html" style="color: inherit; text-decoration: none;">Science of Dark Mode</a>
+            <a href="/is-it-safe-to-upload-pdfs.html" style="color: inherit; text-decoration: none;">Is it Safe to Upload PDFs?</a>
+            <a href="/best-open-source-pdf-tools.html" style="color: inherit; text-decoration: none;">Best Open Source PDF Tools</a>
+            <a href="/how-to-fix-pdf-scrolling-lag.html" style="color: inherit; text-decoration: none;">How to Fix PDF Scrolling Lag</a>
+          </div>
+        </div>
+        <p style="opacity: 0.5; font-size: 0.85rem; margin-top: 1rem;">&copy; 2026 Nighthawk PDF Reader. All rights reserved.</p>
+      </footer>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

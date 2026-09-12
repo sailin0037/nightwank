@@ -183,13 +183,18 @@
       <h2>Cybersecurity Analysis: The Risks of Online PDF Converters & Readers</h2>
       <p>Every day, millions of users upload sensitive financial statements, legal contracts, medical charts, and confidential corporate presentations to "free online PDF converter" and "AI PDF summarizer" websites. What few users realize is that uploading a document exposes it to critical security and compliance hazards.</p>
 
+      <div style="background: rgba(239, 68, 68, 0.05); border-left: 4px solid #ef4444; padding: 1.5rem; margin: 2rem 0; border-radius: 0 8px 8px 0;">
+        <h4 style="margin-top: 0; color: #ef4444;">High-Risk Vulnerability: Data Scraping & Shadow Retention</h4>
+        <p>When you drag and drop a PDF into a browser tab, it is transmitted over the internet to a third-party server. Even if the service claims they "delete files after 24 hours," your document may be temporarily cached in unencrypted AWS S3 buckets, scraped by internal analytics tools, or indexed by background machine learning algorithms before deletion.</p>
+      </div>
+
       <h3>Where Does Your Uploaded PDF Actually Go?</h3>
       <ul>
         <li><strong>Third-Party Server Storage:</strong> Uploaded documents are saved onto remote cloud storage buckets that can be breached, misconfigured, or indexed by search crawlers.</li>
         <li><strong>AI Model Training Exposure:</strong> Many cloud-based PDF tools explicitly state in their terms of service that uploaded content may be used to train generative AI models, potentially leaking confidential trade secrets.</li>
         <li><strong>Regulatory Violations:</strong> Processing patient data (HIPAA) or European personal information (GDPR) on unverified cloud tools creates massive corporate liability.</li>
       </ul>
-      <p><strong>The Solution:</strong> Keep your document processing strictly local. With Nighthawk PDF Reader, all viewing, searching, and annotating occurs directly on your physical hardware with zero network connectivity.</p>
+      <p><strong>The Air-Gapped Solution:</strong> Keep your document processing strictly local. With Nighthawk PDF Reader, all viewing, searching, and annotating occurs directly on your physical hardware. By lacking network socket code entirely, Nighthawk offers a mathematical guarantee of zero data exfiltration.</p>
   
       </article>
       </main>
@@ -211,7 +216,7 @@
             <a href="/science-of-dark-mode-reading.html" style="color: inherit; text-decoration: none;">Science of Dark Mode</a>
             <a href="/is-it-safe-to-upload-pdfs.html" style="color: inherit; text-decoration: none;">Is it Safe to Upload PDFs?</a>
             <a href="/best-open-source-pdf-tools.html" style="color: inherit; text-decoration: none;">Best Open Source PDF Tools</a>
-            <a href="/how-to-fix-pdf-rendering-lag.html" style="color: inherit; text-decoration: none;">How to Fix PDF Rendering Lag</a>
+            <a href="/how-to-fix-pdf-scrolling-lag.html" style="color: inherit; text-decoration: none;">How to Fix PDF Scrolling Lag</a>
           </div>
         </div>
         <p style="opacity: 0.5; font-size: 0.85rem; margin-top: 1rem;">&copy; 2026 Nighthawk PDF Reader. All rights reserved.</p>

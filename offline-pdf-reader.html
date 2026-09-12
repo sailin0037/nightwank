@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Offline Private PDF Reader | Zero Telemetry</title>
-    <meta name="description" content="Download Nighthawk PDF Reader for Windows 11. The fastest, free 64-bit PDF viewer optimized for modern Windows 11 hardware with native C++ acceleration." />
+    <title>100% Offline Local-First PDF Reader | Nighthawk</title>
+    <meta name="description" content="Stop uploading your private documents to cloud AI servers. Nighthawk is a 100% offline, local-first PDF reader ensuring absolute data privacy." />
     
     <!-- SEO: JSON-LD Structured Data for Software Application -->
     <script type="application/ld+json">
@@ -96,18 +96,143 @@
       ]
     }
     </script>
-    <link rel="icon" type="image/jpeg" href="/nighthawk-logo.jpg" />
-    <link rel="apple-touch-icon" href="/nighthawk-logo.jpg" />
+    <link rel="icon" type="image/webp" href="/logo.webp" />
+    <link rel="apple-touch-icon" href="/logo.webp" />
     <!-- Open Graph & Canonical -->
-    <link rel="canonical" href="https://www.nighthawkpdfreader.app/windows-11-pdf-reader.html" />
-    <meta property="og:title" content="Nighthawk PDF Reader for Windows 11" />
-    <meta property="og:description" content="The ultimate lightweight, blazing fast PDF reader optimized for Windows 11." />
-    <meta property="og:image" content="https://www.nighthawkpdfreader.app/nighthawk-logo.jpg" />
-    <meta property="og:url" content="https://www.nighthawkpdfreader.app/windows-11-pdf-reader.html" />
+    <link rel="canonical" href="https://www.nighthawkpdfreader.app/offline-pdf-reader.html" />
+    <link rel="alternate" hreflang="x-default" href="https://www.nighthawkpdfreader.app/offline-pdf-reader.html" />
+    <link rel="alternate" hreflang="x-default" href="https://www.nighthawkpdfreader.app/" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Nighthawk PDF Reader" />
+    <meta property="og:title" content="100% Offline Local-First PDF Reader | Nighthawk" />
+    <meta property="og:description" content="Stop uploading your private documents to cloud AI servers. Nighthawk is a 100% offline, local-first PDF reader ensuring absolute data privacy." />
+    <meta property="og:image" content="https://www.nighthawkpdfreader.app/nighthawk-logo.webp" />
+    <meta property="og:url" content="https://www.nighthawkpdfreader.app/offline-pdf-reader.html" />
+    
+    <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
-      <link rel="preload" href="/nighthawk.jpg" as="image">
+    <meta name="twitter:title" content="100% Offline Local-First PDF Reader | Nighthawk" />
+    <meta name="twitter:description" content="Stop uploading your private documents to cloud AI servers. Nighthawk is a 100% offline, local-first PDF reader ensuring absolute data privacy." />
+    <meta name="twitter:url" content="https://www.nighthawkpdfreader.app/offline-pdf-reader.html" />
+    <meta name="twitter:title" content="Nighthawk PDF Reader â€” Lightweight PDF Reader with Dark Mode & Annotations" />
+    <meta name="twitter:description" content="Download Nighthawk PDF Reader, the best lightweight PDF reader for PC. Completely free, blazing fast, with biological dark mode and advanced annotation features." />
+    <meta name="twitter:image" content="https://www.nighthawkpdfreader.app/nighthawk-logo.webp" />
+    <meta name="twitter:url" content="https://www.nighthawkpdfreader.app/" />
+    
+    <meta name="theme-color" content="#0a0a0c" />
+    <link rel="ai-catalog" href="/.well-known/ai-catalog.json" />
+    
+    <!-- WebMCP Tool Registration for AI Agents -->
+    <script>
+      (function initWebMCP() {
+        try {
+          if (typeof window === 'undefined') return;
+          
+          if (!navigator.modelContext) {
+            const _tools = new Map();
+            navigator.modelContext = {
+              registerTool: function(tool, options) {
+                const id = tool.name;
+                _tools.set(id, { tool: tool, options: options });
+                if (options && options.signal) {
+                  options.signal.addEventListener('abort', function() {
+                    _tools.delete(id);
+                  });
+                }
+                return {
+                  unregister: function() {
+                    _tools.delete(id);
+                  }
+                };
+              },
+              get registeredTools() {
+                return Array.from(_tools.values()).map(function(t) { return t.tool; });
+              }
+            };
+          }
+
+          if (typeof navigator.modelContext.registerTool === 'function') {
+            const controller = new AbortController();
+            const signal = controller.signal;
+
+            navigator.modelContext.registerTool({
+              name: 'download_pdf_reader',
+              description: 'Download the Nighthawk PDF Reader installer or portable binary for Windows.',
+              inputSchema: {
+                type: 'object',
+                properties: {
+                  packageType: {
+                    type: 'string',
+                    enum: ['installer', 'portable'],
+                    description: 'Download format (installer or portable)'
+                  }
+                }
+              },
+              execute: async function(params) {
+                const type = (params && params.packageType) || 'installer';
+                const url = type === 'portable'
+                  ? 'https://github.com/sailin0037/nightwank/releases/download/v1.0.0/Nighthawk-Windows-Portable.zip'
+                  : 'https://github.com/sailin0037/nightwank/releases/download/v1.0.0/Nighthawk-Setup.exe';
+                window.location.href = url;
+                return { success: true, downloadUrl: url };
+              }
+            }, { signal: signal });
+
+            navigator.modelContext.registerTool({
+              name: 'get_documentation',
+              description: 'Fetch and view the Nighthawk PDF Reader user manual, shader documentation, and LLM text guides.',
+              inputSchema: {
+                type: 'object',
+                properties: {
+                  topic: {
+                    type: 'string',
+                    description: 'Documentation topic'
+                  }
+                }
+              },
+              execute: async function(params) {
+                return {
+                  title: 'Nighthawk PDF Reader Documentation',
+                  overviewUrl: 'https://nighthawkpdfreader.app/llms.txt',
+                  markdownUrl: 'https://nighthawkpdfreader.app/index.md'
+                };
+              }
+            }, { signal: signal });
+          }
+        } catch (e) {
+          console.warn('WebMCP init notice:', e);
+        }
+      })();
+    </script>
+    <link rel="preload" href="/nighthawk.webp" as="image" type="image/webp" fetchpriority="high">
+  
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.nighthawkpdfreader.app/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "100% Offline Local-First PDF Reader | Nighthawk",
+          "item": "https://www.nighthawkpdfreader.app/offline-pdf-reader.html"
+        }
+      ]
+    }
+    </script>
+  
   </head>
   <body>
+    <!-- Custom Cursor Glow -->
+    <div class="custom-cursor"></div>
+
     <!-- The WebGL Golden Lines Background -->
     <canvas id="webgl-canvas"></canvas>
     
@@ -119,6 +244,7 @@
           <a href="/privacy.html">Privacy</a>
           <a href="/dark-mode.html">Dark Mode</a>
           <a href="/annotations.html">Annotations</a>
+          <a href="/security.html">Security</a>
         </nav>
         <div class="header-actions">
           <a href="https://github.com/sailin0037/nightwank/releases/latest/download/Nighthawk-Setup.exe" class="btn btn-white">Download App &rsaquo;</a>
@@ -127,8 +253,8 @@
       <main>
         <!-- Atomik style 3-column hero layout -->
         <section class="hero-cinematic">
-          <div class="hero-left">
-            <h1>Windows 11<br/>PDF Reader<br/>(64-bit)</h1>
+          <div class="hero-left reveal">
+            <h1>Your Data Stays<br/><span style="background: linear-gradient(to right, #10b981, #059669); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">On Your Device.</span></h1>
             <div class="hero-buttons">
               <a href="https://github.com/sailin0037/nightwank/releases/latest/download/Nighthawk-Setup.exe" class="btn btn-white">Download Setup (.exe) &rsaquo;</a>
               <a href="https://github.com/sailin0037/nightwank/releases/latest/download/Nighthawk-Windows-Portable.zip" class="btn btn-outline">Portable (.zip)</a>
@@ -141,51 +267,95 @@
           
           <div class="hero-center">
             <!-- The floating 3D asset -->
-            <img src="/nighthawk.jpg" alt="Nighthawk Stealth Jet" class="floating-asset" width="800" height="600" fetchpriority="high" />
+            <img src="/nighthawk.webp" alt="Nighthawk Stealth Jet" class="floating-asset" width="800" height="600" fetchpriority="high" />
           </div>
 
-          <div class="hero-right">
-            <p>Experience blazing fast document rendering on your modern Windows 11 PC. Written purely in native C++ for maximum 64-bit performance, ensuring it runs as the <a href="/fastest-pdf-reader.html" style="color: inherit; text-decoration: underline;">fastest PDF reader</a> available. Completely free download and perfectly optimized for Windows 11 architecture.</p>
+          <div class="hero-right reveal">
+            <p>Experience blazing fast document rendering with our zero-distraction interface. Written purely in native C++ for maximum performance, ensuring it runs lightning fast on any PC. Completely free.</p>
           </div>
         </section>
 
-        <!-- Keep the rest of the features below -->
+        <!-- Stats Bar -->
+        <section class="stats-bar reveal" id="stats">
+          <div class="stat-item">
+            <h2 class="counter" data-target="27">27</h2>
+            <span>MB Installer</span>
+          </div>
+          <div class="stat-item">
+            <h2 class="counter" data-target="0.3" data-decimals="1">0</h2>
+            <span>Seconds Startup</span>
+          </div>
+          <div class="stat-item">
+            <h2>100%</h2>
+            <span>Free Forever</span>
+          </div>
+          <div class="stat-item">
+            <h2>Zero</h2>
+            <span>Telemetry</span>
+          </div>
+        </section>
+
+        <!-- Features -->
         <section class="features" id="features">
-          <div class="feature-card">
+          <div class="feature-card reveal">
             <div class="feature-icon">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
             </div>
-            <h3>Native Windows 11 Performance</h3>
-            <p>Written in native, bare-metal C++ with Direct2D hardware acceleration. Nighthawk PDF Reader takes full advantage of Windows 11 rendering optimizations to open massive documents instantly.</p>
+            <h3>Lightning Fast on Any PC</h3>
+            <p>Written in native, bare-metal C++ with Direct2D hardware acceleration. Nighthawk PDF Reader opens massive documents instantly without hogging your RAM.</p>
           </div>
-          <div class="feature-card">
+          <div class="feature-card reveal" style="transition-delay: 100ms;">
             <div class="feature-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></svg>
             </div>
             <h3>Biological Dark Modes</h3>
             <p>Go beyond simple inversion. Use 'Predator' or 'Night Vision' modes to protect your eyes during late-night reading sessions.</p>
           </div>
-          <div class="feature-card">
+          <div class="feature-card reveal" style="transition-delay: 200ms;">
             <div class="feature-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
             </div>
             <h3>Powerful Annotations</h3>
             <p>The best PDF reader with annotation features completely free. Highlight, draw, and export your notes seamlessly.</p>
           </div>
         </section>
-      <article class="prose seo-content">
 
-      <h2>100% Offline PDF Viewing for Air-Gapped & High-Security Environments</h2>
-      <p>In legal firms, government agencies, medical practices, and defense contractor facilities, internet-connected software presents an unacceptable attack surface. Modern software that requires online licensing check-ins, cloud account authentication, or telemetry reporting is fundamentally incompatible with air-gapped security protocols.</p>
+        <!-- App Showcase -->
+        <section class="showcase reveal">
+          <div class="showcase-glow"></div>
+          <div class="showcase-img-container">
+            <img src="/real-normal.png" alt="Nighthawk Normal Mode UI" class="showcase-img img-normal" />
+            <img src="/real-predator.png" alt="Nighthawk Predator Mode UI" class="showcase-img img-predator" />
+          </div>
+        </section>
+      
+        <article class="prose seo-content reveal">
 
-      <h3>Engineered for Total Air-Gapped Isolation</h3>
-      <p>Nighthawk PDF Reader is strictly air-gapped by design. The software does not include network socket client code (<code>ws2_32.dll</code> or HTTP stacks) for document handling. It does not phone home, does not require an internet connection for installation or activation, and operates flawlessly on completely disconnected Windows workstations. You can verify its zero-egress guarantee using Wireshark or firewall packet analyzers at any time.</p>
+      <h2>The Hidden Security Hazards of Cloud-Based PDF Portals</h2>
+      <p>In the rush to integrate "AI document summaries," countless online PDF tools and modern desktop readers now quietly upload your documents to third-party cloud servers. When you open legal contracts, patient medical records, intellectual property blueprints, or tax returns in these cloud-connected readers, your private data is processed through remote servers and retained for model trainingâ€”creating massive regulatory exposure under HIPAA, GDPR, and corporate confidentiality agreements.</p>
+
+      <h3>The Air-Gapped Zero-Telemetry Guarantee</h3>
+      <p>Nighthawk PDF Reader is built on a non-negotiable principle: <strong>software should do its job locally without phoning home</strong>. Nighthawk's rendering core does not import network socket libraries for document viewing. It operates completely disconnected from the internet. You can sever your Wi-Fi, run Nighthawk in an air-gapped security cleanroom, and inspect network traffic with Wiresharkâ€”you will observe exactly zero outbound connections. Your documents are your business.</p>
+    
+        </article>
+      
+      <section style="background: rgba(255, 255, 255, 0.02); border-top: 1px solid rgba(255, 255, 255, 0.08); border-bottom: 1px solid rgba(255, 255, 255, 0.08); padding: 3rem 1.5rem; margin-top: 4rem;">
+        <div style="max-width: 1000px; margin: 0 auto; text-align: center;">
+          <h3 style="color: #ffffff; font-size: 1.25rem; font-weight: 600; margin-bottom: 1.5rem;">Explore More Specialized Guides & Benchmarks</h3>
+          <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem 1.5rem; font-size: 0.9rem;">
+          <li><a href="/pdf-reader-with-biometric-vault.html" style="color: #10b981; text-decoration: none; font-weight: 500;">Biometric Security. For Sensitive Documents.</a></li>
+          <li><a href="/pdf-reader-with-biological-dark-mode.html" style="color: #10b981; text-decoration: none; font-weight: 500;">True Biological Dark Mode.</a></li>
+          <li><a href="/sumatra-pdf-alternative-with-dark-mode.html" style="color: #10b981; text-decoration: none; font-weight: 500;">Fast like Sumatra. Beautifully Modern.</a></li>
+          <li><a href="/how-to-fix-pdf-scrolling-lag.html" style="color: #10b981; text-decoration: none; font-weight: 500;">Fix PDF Scrolling Lag. Experience 60fps.</a></li>
+          <li><a href="/why-does-adobe-acrobat-use-so-much-ram.html" style="color: #10b981; text-decoration: none; font-weight: 500;">Stop the Memory Leaks. Switch to Nighthawk.</a></li>
+          <li><a href="/fastest-pdf-reader-for-low-end-pc.html" style="color: #10b981; text-decoration: none; font-weight: 500;">The Fastest PDF Reader. Built for Every PC.</a></li>
+          </ul>
+        </div>
+      </section>
   
-      </article>
       </main>
 
-                              
-    <footer style="padding: 2rem; border-top: 1px solid rgba(255,255,255,0.1); margin-top: 4rem; display: flex; flex-direction: column; align-items: center; gap: 1.5rem;">
+      <footer style="padding: 2rem; border-top: 1px solid rgba(255,255,255,0.1); margin-top: 4rem; display: flex; flex-direction: column; align-items: center; gap: 1.5rem;">
         <div style="display: flex; gap: 3rem; flex-wrap: wrap; justify-content: center;">
           <div class="seo-footer-links" style="display: flex; flex-direction: column; gap: 0.5rem; font-size: 0.85rem; opacity: 0.7;">
             <strong style="color: #fff; opacity: 1;">Popular Searches</strong>
@@ -198,17 +368,26 @@
           </div>
           <div class="seo-footer-links" style="display: flex; flex-direction: column; gap: 0.5rem; font-size: 0.85rem; opacity: 0.7;">
             <strong style="color: #fff; opacity: 1;">Guides & Resources</strong>
+            <a href="/benchmarks.html" style="color: #10b981; text-decoration: none;">2026 Benchmarks Data</a>
             <a href="/science-of-dark-mode-reading.html" style="color: inherit; text-decoration: none;">Science of Dark Mode</a>
+            <a href="/security.html" style="color: inherit; text-decoration: none;">Security & Hashes</a>
             <a href="/is-it-safe-to-upload-pdfs.html" style="color: inherit; text-decoration: none;">Is it Safe to Upload PDFs?</a>
             <a href="/best-open-source-pdf-tools.html" style="color: inherit; text-decoration: none;">Best Open Source PDF Tools</a>
-            <a href="/how-to-fix-pdf-rendering-lag.html" style="color: inherit; text-decoration: none;">How to Fix PDF Rendering Lag</a>
+            <a href="/how-to-fix-pdf-scrolling-lag.html" style="color: inherit; text-decoration: none;">How to Fix PDF Scrolling Lag</a>
+          </div>
+          <div class="seo-footer-links" style="display: flex; flex-direction: column; gap: 0.5rem; font-size: 0.85rem; opacity: 0.7;">
+            <strong style="color: #fff; opacity: 1;">Alternatives & Comparisons</strong>
+            <a href="/adobe-acrobat-free-alternative-no-subscription.html" style="color: inherit; text-decoration: none;">Adobe Acrobat Free Alternative</a>
+            <a href="/foxit-reader-free-alternative.html" style="color: inherit; text-decoration: none;">Foxit Reader Alternative</a>
+            <a href="/sumatra-pdf-alternative-with-dark-mode.html" style="color: inherit; text-decoration: none;">Sumatra PDF Dark Mode</a>
+            <a href="/pdf-reader-for-research-papers-and-students.html" style="color: inherit; text-decoration: none;">For Students & Researchers</a>
+            <a href="/fastest-pdf-reader-for-low-end-pc.html" style="color: inherit; text-decoration: none;">For Low-End & Budget PCs</a>
+            <a href="/pdf-reader-with-biological-dark-mode.html" style="color: inherit; text-decoration: none;">Biological Dark Mode</a>
           </div>
         </div>
         <p style="opacity: 0.5; font-size: 0.85rem; margin-top: 1rem;">&copy; 2026 Nighthawk PDF Reader. All rights reserved.</p>
       </footer>
     </div>
-    
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>
-

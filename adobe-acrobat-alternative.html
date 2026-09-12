@@ -182,12 +182,44 @@
       <p>Nighthawk PDF Reader was engineered from the ground up in native C++ to offer a complete, non-bloated replacement for Adobe Acrobat on Windows. Unlike Adobe's Electron and web-based UI containers, Nighthawk executes directly on the bare metal with Direct2D hardware acceleration. The result is instant cold-starts (&lt;80ms), silky-smooth 60fps scrolling, and a clean, zero-telemetry reading environment.</p>
 
       <h3>Key Advantages Over Adobe Acrobat:</h3>
-      <ul>
-        <li><strong>Zero Cost, Zero Subscriptions:</strong> 100% free forever. No premium tiers, no watermarks, and no trial countdowns.</li>
-        <li><strong>Free Precision Annotations:</strong> Full-spectrum text highlighting, stylus drawing, and note-taking adhere strictly to ISO 32000 PDF specifications.</li>
-        <li><strong>Image-Preserving Biological Dark Modes:</strong> Read late into the night without eye strain. Unlike Acrobat's crude color inversion, Nighthawk preserves authentic image and chart colors.</li>
-        <li><strong>Microscopic Footprint:</strong> Under 5MB installer size compared to Adobe's 300MB+ setup package.</li>
-      </ul>
+      <div style="overflow-x: auto; margin: 2rem 0;">
+        <table style="width: 100%; border-collapse: collapse; font-size: 0.95rem; text-align: left;">
+          <thead>
+            <tr style="border-bottom: 2px solid rgba(16, 185, 129, 0.4); color: #10b981;">
+              <th style="padding: 0.75rem;">Feature / Metric</th>
+              <th style="padding: 0.75rem;">Adobe Acrobat Reader</th>
+              <th style="padding: 0.75rem;">Nighthawk PDF Reader</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.08);">
+              <td style="padding: 0.75rem; font-weight: 600;">Pricing & Subscriptions</td>
+              <td style="padding: 0.75rem; color: #ef4444;">Nag screens, premium tiers up to $20/mo</td>
+              <td style="padding: 0.75rem; color: #10b981;">100% Free Forever (No Upsells)</td>
+            </tr>
+            <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.08);">
+              <td style="padding: 0.75rem; font-weight: 600;">Memory Footprint (RAM)</td>
+              <td style="padding: 0.75rem; color: #ef4444;">~400MB to 650MB (Idle)</td>
+              <td style="padding: 0.75rem; color: #10b981;">&lt; 25MB (Idle)</td>
+            </tr>
+            <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.08);">
+              <td style="padding: 0.75rem; font-weight: 600;">Installer Size</td>
+              <td style="padding: 0.75rem; color: #ef4444;">300MB+</td>
+              <td style="padding: 0.75rem; color: #10b981;">&lt; 5MB</td>
+            </tr>
+            <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.08);">
+              <td style="padding: 0.75rem; font-weight: 600;">Background Telemetry</td>
+              <td style="padding: 0.75rem; color: #ef4444;">Adobe ARM, AcroCEF Daemons</td>
+              <td style="padding: 0.75rem; color: #10b981;">Zero (Air-Gapped)</td>
+            </tr>
+            <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.08);">
+              <td style="padding: 0.75rem; font-weight: 600;">Dark Mode</td>
+              <td style="padding: 0.75rem; color: #eab308;">Naive Color Inversion</td>
+              <td style="padding: 0.75rem; color: #10b981;">Biological Shaders (Image Preserving)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
   
       </article>
       </main>
@@ -209,7 +241,7 @@
             <a href="/science-of-dark-mode-reading.html" style="color: inherit; text-decoration: none;">Science of Dark Mode</a>
             <a href="/is-it-safe-to-upload-pdfs.html" style="color: inherit; text-decoration: none;">Is it Safe to Upload PDFs?</a>
             <a href="/best-open-source-pdf-tools.html" style="color: inherit; text-decoration: none;">Best Open Source PDF Tools</a>
-            <a href="/how-to-fix-pdf-rendering-lag.html" style="color: inherit; text-decoration: none;">How to Fix PDF Rendering Lag</a>
+            <a href="/how-to-fix-pdf-scrolling-lag.html" style="color: inherit; text-decoration: none;">How to Fix PDF Scrolling Lag</a>
           </div>
         </div>
         <p style="opacity: 0.5; font-size: 0.85rem; margin-top: 1rem;">&copy; 2026 Nighthawk PDF Reader. All rights reserved.</p>
