@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="https://nighthawkpdfreader.app/favicon-v2.svg" width="96" height="96" alt="Nighthawk PDF Reader" />
+<img src="public/logo.webp" width="160" alt="Nighthawk PDF Reader" />
 
 # Nighthawk PDF Reader
 
