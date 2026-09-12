@@ -8,6 +8,7 @@ const baseUrl = 'https://www.nighthawkpdfreader.app';
 const corePages = [
   { loc: `${baseUrl}/`, changefreq: 'daily', priority: '1.0' },
   { loc: `${baseUrl}/download.html`, changefreq: 'daily', priority: '0.9' },
+  { loc: `${baseUrl}/security.html`, changefreq: 'daily', priority: '0.9' },
   { loc: `${baseUrl}/performance.html`, changefreq: 'daily', priority: '0.8' },
   { loc: `${baseUrl}/privacy.html`, changefreq: 'daily', priority: '0.8' },
   { loc: `${baseUrl}/dark-mode.html`, changefreq: 'daily', priority: '0.8' },

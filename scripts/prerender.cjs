@@ -55,6 +55,14 @@ seoPages.forEach(page => {
       `<div class="hero-right">\n            <p>${page.heroText} Engineered purely in native C++ with Direct2D hardware acceleration for zero lag, zero memory bloat, and total offline privacy.</p>\n          </div>`
     );
 
+  // True unique article body replacement to eliminate duplicate content
+  if (page.article) {
+    pageHtml = pageHtml.replace(
+      /<article class="prose seo-content[^"]*">[\s\S]*?<\/article>/,
+      `<article class="prose seo-content reveal">\n${page.article}\n        </article>`
+    );
+  }
+
   // Breadcrumb schema
   const breadcrumbSchema = `
     <script type="application/ld+json">
