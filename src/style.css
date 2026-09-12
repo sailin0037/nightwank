@@ -221,7 +221,7 @@ header.header:hover {
   align-items: center;
   min-height: 100vh; /* Full viewport height to sell the illusion */
   gap: 2rem;
-  padding-top: 5rem;
+  padding-top: 8rem;
 }
 
 .hero-left h1 {
